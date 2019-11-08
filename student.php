@@ -22,16 +22,30 @@ table th{
 <tr><th>Student Sign in</th></tr>
 <tr><td>REGISTRATION NO.</td></tr>
 <tr><td><input type="text" name="regno"/></td></tr>
-<tr><td align="center"><input type="submit" value="LOGIN"/></td></tr>
+<tr><td align="center"><input type="submit" name="submit" value="LOGIN"/></td></tr>
 </table>
 </center>
 </form>
 </body>
 </html>
 <?php 
-$link mysqli_connect("localhost","root","") or die("no database");
-$mysqli_select_db($link, "exam-seat") or die("not selected");
+$link=mysqli_connect("localhost","root","") or die("no database");
+mysqli_select_db($link, "exam-seat") or die("not selected");
 if (isset($_POST['submit'])){
-    
+    $regno=$_POST['regno'];
+    if(empty($regno)){
+        echo "<h3>Enter your USN</h3>";
+    }
+    else{
+        $myquery=mysqli_query($link, "select regno from addstudents where regno='$regno'") or die("failed to query".mysqli_error($link));
+        $row =mysqli_fetch_array($myquery);
+        if($row['regno']==$regno){
+            echo "Successful";
+            header("Location:search_student.php");
+        }
+        else
+        echo "<h3>Enter the valid USN</h3>";
+    }
 }
+?>
 

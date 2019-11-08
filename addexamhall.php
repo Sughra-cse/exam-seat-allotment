@@ -5,13 +5,13 @@ mysqli_select_db($link,"exam-seat") or die("not connected ");
      $hallname=$_POST['hallname'];
      $blockname=$_POST['blockname'];
      $floor=$_POST['floor'];
-     $seatno=$_POST['seatcapacity'];
-     if(empty($hallname)||empty($blockname)||empty($floor)||empty($seatno)){
+     $seatcapacity=$_POST['seatcapacity'];
+     if(empty($hallname)||empty($blockname)||empty($floor)||empty($seatcapacity)){
          echo "<h3>Enter all the Details: *its required</h3>";
      }
      else{
          $query="insert into addexamhall(hallname,blockname,floor,seatcapacity)
-         values ('$hallname','$blockname','$floor','$seatno')";
+         values ('$hallname','$blockname','$floor','$seatcapacity')";
          if(mysqli_query($link,$query)){
             echo "<h3>Exam Hall Details Added Successfully</h3>";
             header("Location:home.php");
@@ -62,7 +62,7 @@ th{
  <tr><td><input type="number" name="floor"/></td></tr>
  <tr><td>SEAT NUMBER</td></tr>
  <tr><td><input type="number" name="seatcapacity"/></td></tr>
- <tr><td align="center"><input type="submit" value='SUBMIT'/></td></tr>
+ <tr><td align="center"><input type="submit" name="submit" value='SUBMIT'/></td></tr>
  </table>
  </center>
  </form>
