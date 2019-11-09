@@ -6,14 +6,15 @@ if(isset($_POST['submit'])){
     $sname=$_POST['sname'];
     $branch=$_POST['branch'];
     $year=$_POST['year'];
+    $sem=$_POST['sem'];
     $email=$_POST['email'];
     $date=$_POST['date'];
-    if(empty($regno)||empty($sname)||empty($branch)||empty($year)||empty($email)||empty($date)){
+    if(empty($regno)||empty($sname)||empty($branch)||empty($year)||empty($sem)||empty($email)||empty($date)){
             echo "<h3>Enter all the Details : *its required</h3>";
         }
         else{
-            $query = "insert into addstudents(regno,sname,branch,year,email,date) 
-           values ('$regno','$sname','$branch','$year','$email','$date')";
+            $query = "insert into addstudents(regno,sname,branch,year,sem,email,date) 
+           values ('$regno','$sname','$branch','$year','$sem','$email','$date')";
             if(mysqli_query($link,$query))
             {
                 echo "<h3>Student Details Added Successfully</h3>";
@@ -72,6 +73,8 @@ th{
 <option value="2year">2nd Year</option>
 <option value="3year">3rd Year</option>
 <option value="4year">4th Year</option></select></td></tr>
+<tr><td>SEMESTER</td></tr>
+<tr><td><input type="text" name="sem"/></td></tr>
 <tr><td>EMAILID</td><tr>
 <tr><td><input type="email" name="email"/></td></tr>
 <tr><td>DATE OF BIRTH</td><tr>

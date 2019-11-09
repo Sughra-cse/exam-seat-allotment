@@ -2,13 +2,15 @@
 $link=mysqli_connect("localhost","root","") or die("no db");
 mysqli_select_db($link,"exam-seat") or die ("not connected");
 if(isset($_POST['submit'])){
+    $regno=$_POST['regno'];
+    $branch=$_POST['branch'];
     $semister=$_POST['sem'];
     $date=$_POST['date'];
-    if(empty($semister)||empty($date)){
+    if(empty($regno)||empty($branch)||empty($semister)||empty($date)){
         echo "<h3>Enter the Details:* its Required</h3>";
     }
     else{
-        $query="insert into addseat(semister,date) values ('$semister','$date')";
+        $query="insert into addseat(regno,branch,semister,date) values ('$regno','$branch','$semister','$date')";
         if(mysqli_query($link,$query)){
             echo '<h3>Successfully added Deatails</h3>';
             header("Location:home.php");
@@ -50,6 +52,10 @@ th{
 <center>
 <table border="1" width="340px" height="400px">
 <tr><th>Auto Seating Allotment</th></tr>
+<tr><td>REGISTER NO</td></tr>
+<tr><td><input type="text" name="regno"/></td></tr>
+<tr><td>BRANCH</td></tr>
+<tr><td><input type="text" name="branch"/></td></tr>
 <tr><td>SEMESTER</td></tr>
 <tr><td><input type="text" name="sem"/></td></tr>
 <tr><td>DATE</td></tr>
