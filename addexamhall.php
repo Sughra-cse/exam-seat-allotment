@@ -14,7 +14,7 @@ mysqli_select_db($link,"exam-seat") or die("not connected ");
      }
      else{
          $query="insert into addexamhall(regno,branch,hallname,blockname,floor,sem,seatcapacity)
-         values ('$rego','$brach',$hallname','$blockname','$floor','$sem'$seatcapacity')";
+         values ('$regno','$branch',$hallname','$blockname','$floor','$sem','$seatcapacity')";
          if(mysqli_query($link,$query)){
             echo "<h3>Exam Hall Details Added Successfully</h3>";
             header("Location:home.php");
@@ -57,7 +57,7 @@ th{
  <center>
  <table border="1" width="350px" height="400px">
  <tr><th>Add Exam Halls</th></tr>
- <tr><td>REGISTER <NOframes></NOframes></td></tr>
+ <tr><td>REGISTER</td></tr>
  <tr><td><input type="text"  name="regno"/></td></tr>
  <tr><td>BRANCH</td></tr>
  <tr><td><input type="text"  name="branch"/></td></tr>
@@ -68,7 +68,7 @@ th{
  <tr><td>FLOOR</td></tr>
  <tr><td><input type="number" name="floor"/></td></tr>
  <tr><td>SEMESTER</td></tr>
- <tr><td><input type="text"  name="sem"/></td></tr>
+ <tr><td><input type="number"  name="sem"/></td></tr>
  <tr><td>SEAT NUMBER</td></tr>
  <tr><td><input type="number" name="seatcapacity"/></td></tr>
  <tr><td align="center"><input type="submit" name="submit" value='SUBMIT'/></td></tr>
