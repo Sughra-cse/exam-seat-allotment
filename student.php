@@ -3,6 +3,8 @@
 <head>
 <title>student login</title>
 <style>
+body{
+background-image:url('classroom.jpg');}
 table tr{
     background-color:grey;
     color:white;
@@ -33,13 +35,13 @@ $link=mysqli_connect("localhost","root","") or die("no database");
 mysqli_select_db($link, "exam-seat") or die("not selected");
 if (isset($_POST['submit'])){
     $regno=$_POST['regno'];
-    if(empty($field)){
+    if(empty($regno)){
         echo "<h3>Enter your USN</h3>";
     }
     else{
-        $myquery=mysqli_query($link, "select field from addstudents where field='$field' ") or die("failed to query".mysqli_error($link));
+        $myquery=mysqli_query($link, "select regno from addstudents where regno='$regno' ") or die("failed to query".mysqli_error($link));
         $row =mysqli_fetch_array($myquery);
-        if($row['field']==$field){
+        if($row['regno']==$regno){
             echo "Successful";
             header("Location:search_student.php");
         }
