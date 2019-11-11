@@ -13,7 +13,7 @@ if(isset($_POST['submit']))
         $row=mysqli_fetch_array($result);
         if($row['username']==$Username && $row['password']==$Password){
             echo "Your Login Successfull!!  <br> I Welcome You";
-            header("Location:home.php");
+            header("Location:addstudent.php");
         }
             else
             echo "Enter the valid data"; 

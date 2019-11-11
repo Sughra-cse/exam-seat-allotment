@@ -31,6 +31,34 @@ if(isset($_POST['submit'])){
 <head>
 <title>Adding students</title>
 <style>
+body{
+  background-image:url('hme.jpg' );
+}
+div{
+    margin-left:10%;
+    /* border: 2px solid palegreen; */
+}
+nav a:hover{
+  color:green;
+  background:grey;
+}
+nav{
+    cursor:pointer;
+    display:inline;
+    overflow:hidden;
+}
+nav a{
+    float:left;
+    text-align:center;
+    padding:14px 16px;
+    font-size:1.1em;
+    color:white;
+    background:orangered;
+    text-decoration:none;
+}
+ul{
+  list-style-type:none;
+}
 table td{
     color:white;
     background:grey;
@@ -53,7 +81,19 @@ th{
 </style>
 </head>
 <body>
-<a href="home.php"><button class="btn" >Home</button></a>
+<div>
+<nav>
+<ul>
+<li><a href="addstudent.php" >ADD <br>STUDENTS</a></li>
+<li><a href="addepartment.php">ADD <br>DEPARTMENT</a></li>
+<li><a href="addexamhall.php" >ADD <br>EXAM HALLS</a></li>
+<li><a href="addseat.php" >SEAT <br>ALLOCATION</a></li>
+<li><a href="viewseat.php" >VIEW SEATING <br>ARRAGEMENTS</a></li>
+<li><a href="studentdetail.php" >STUDENT <br>DETAILS</a></li>
+<li><a href="admin.php" >LOG<br>OUT</a></li>
+</ul>
+</nav>
+</div>
 <form action="addstudent.php" method="POST">
 <center>
 <table border="1" width="400px" height="600px">
