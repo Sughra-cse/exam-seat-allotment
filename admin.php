@@ -25,6 +25,9 @@ if(isset($_POST['submit']))
 <head>
 <title>Login in</title>
 <style>
+body{
+    background-image:url("dillon-shook.jpg")
+}
 table{
     align:center;
     color:whitesmoke;
@@ -35,7 +38,6 @@ table{
 }
 form{
     width:50%;
-    border:3px solid palegreen;
     margin-left:20%;
     padding:40px;
 }
@@ -44,7 +46,7 @@ table tr td{
     font-size:1.2em;
 }
 </style>
-<body background="dillon-shook.jpg">
+<body>
 <a href="index.php"><button>back</button></a>
 <form action="admin.php"  method="POST">
 <table border="1" width="400px" height="250px"><tr><td colspan="2">Enter the Login Details</td></tr>

@@ -13,7 +13,7 @@ if(isset($_POST['submit'])){
         $query="insert into addseat(regno,branch,semister,date) values ('$regno','$branch','$semister','$date')";
         if(mysqli_query($link,$query)){
             echo '<h3>Successfully added Deatails</h3>';
-            header("Location:home.php");
+            header("Location:addstudent.php");
         }
         else
         echo "<h3>error</h3>";
@@ -74,12 +74,12 @@ th{
 }
 </style>
 </head>
-<body>
+<body><div>
 <div>
 <nav>
 <ul>
 <li><a href="addstudent.php" >ADD <br>STUDENTS</a></li>
-<li><a href="addepartment.php">ADD <br>DEPARTMENT</a></li>
+<!-- <li><a href="addepartment.php">ADD <br>DEPARTMENT</a></li> -->
 <li><a href="addexamhall.php" >ADD <br>EXAM HALLS</a></li>
 <li><a href="addseat.php" >SEAT <br>ALLOCATION</a></li>
 <li><a href="viewseat.php" >VIEW SEATING <br>ARRAGEMENTS</a></li>
@@ -87,7 +87,7 @@ th{
 <li><a href="admin.php" >LOG<br>OUT</a></li>
 </ul>
 </nav>
-</div
+</div><div>
 <form action="addseat.php" method="POST">
 <center>
 <table border="1" width="340px" height="400px">
@@ -103,6 +103,6 @@ th{
 <tr><td align="center"><input type="submit" name="submit" value="SUBMIT"/></td></tr>
 </table>
 </center>
-</form>
+</form></div></div>
 </body>
 </html>

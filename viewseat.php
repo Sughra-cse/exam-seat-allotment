@@ -48,7 +48,7 @@ th{
 <nav>
 <ul>
 <li><a href="addstudent.php" >ADD <br>STUDENTS</a></li>
-<li><a href="addepartment.php">ADD <br>DEPARTMENT</a></li>
+<!-- <li><a href="addepartment.php">ADD <br>DEPARTMENT</a></li> -->
 <li><a href="addexamhall.php" >ADD <br>EXAM HALLS</a></li>
 <li><a href="addseat.php" >SEAT <br>ALLOCATION</a></li>
 <li><a href="viewseat.php" >VIEW SEATING <br>ARRAGEMENTS</a></li>
@@ -70,7 +70,7 @@ th{
 <?php
 $link=mysqli_connect("localhost","root","") or die("no database");
 mysqli_select_db($link,"exam-seat") or die("not selected");
-$viewquery="SELECT st.regno,e.blockname,e.floor,e.hallname,e.seatcapacity,s.semister,s.date FROM addstudents st,addexamhall e,addseat s where st.regno=e.regno and st.branch=e.branch and s.regno=st.regno and s.branch=st.branch  and st.sem=e.sem and st.sem=s.semister order by st.regno ";
+$viewquery="SELECT st.regno,e.blockname,e.floor,e.hallname,e.seatno,s.semister,s.date FROM addstudents st,addexamhall e,addseat s where st.regno=e.regno and st.branch=e.branch and s.regno=st.regno and s.branch=st.branch  and st.sem=e.sem and st.sem=s.semister order by st.regno ";
 $Execute=mysqli_query($link,$viewquery);
 while($Datarows=mysqli_fetch_array($Execute))
 {
@@ -78,7 +78,7 @@ while($Datarows=mysqli_fetch_array($Execute))
     $block=$Datarows['blockname'];
     $floor=$Datarows['floor'];
     $hall=$Datarows['hallname'];
-    $seat=$Datarows['seatcapacity'];
+    $seat=$Datarows['seatno'];
     $semester=$Datarows['semister'];
     $date=$Datarows['date'];
 

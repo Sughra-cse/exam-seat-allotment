@@ -1,5 +1,5 @@
 <?php
-$link =mysqli_connect("localhost","root","") or die("no db found");
+$link=mysqli_connect("localhost","root","") or die("no db found");
 mysqli_select_db($link,"exam-seat") or die("not conected");
 if(isset($_POST['submit'])){
     $regno=$_POST['regno'];
@@ -18,7 +18,7 @@ if(isset($_POST['submit'])){
             if(mysqli_query($link,$query))
             {
                 echo "<h3>Student Details Added Successfully</h3>";
-                header("Location:home.php");
+                header("Location:addstudent.php");
             }
             else
             echo "error";
@@ -80,12 +80,12 @@ th{
 }
 </style>
 </head>
-<body>
+<body><div>
 <div>
 <nav>
 <ul>
 <li><a href="addstudent.php" >ADD <br>STUDENTS</a></li>
-<li><a href="addepartment.php">ADD <br>DEPARTMENT</a></li>
+<!-- <li><a href="addepartment.php">ADD <br>DEPARTMENT</a></li> -->
 <li><a href="addexamhall.php" >ADD <br>EXAM HALLS</a></li>
 <li><a href="addseat.php" >SEAT <br>ALLOCATION</a></li>
 <li><a href="viewseat.php" >VIEW SEATING <br>ARRAGEMENTS</a></li>
@@ -120,6 +120,6 @@ th{
 <tr><td>DATE OF BIRTH</td><tr>
 <tr><td><input type="date" name="date"/></td></tr>
 <tr><td align="center"><input type="submit" name="submit" value="Submit"/></td></tr></table></center>
-</form>
+</form></div>
 </body>
 </html>

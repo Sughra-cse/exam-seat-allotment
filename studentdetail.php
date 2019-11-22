@@ -49,7 +49,7 @@ table{margin-left:10%;}
 <nav>
 <ul>
 <li><a href="addstudent.php" >ADD <br>STUDENTS</a></li>
-<li><a href="addepartment.php">ADD <br>DEPARTMENT</a></li>
+<!-- <li><a href="addepartment.php">ADD <br>DEPARTMENT</a></li> -->
 <li><a href="addexamhall.php" >ADD <br>EXAM HALLS</a></li>
 <li><a href="addseat.php" >SEAT <br>ALLOCATION</a></li>
 <li><a href="viewseat.php" >VIEW SEATING <br>ARRAGEMENTS</a></li>
@@ -63,7 +63,7 @@ table{margin-left:10%;}
 <tr><th>RegNo</th>
 <th>Student</th>
 <th>Dept</th>
-<th>Year</th>
+<th>SEMESTER</th>
 <th>Email</th>
 <th>DOB</th>
 </tr>
@@ -76,7 +76,8 @@ while($Datarows=mysqli_fetch_array($EXECUTE)){
     $regno=$Datarows['regno'];
     $student=$Datarows['sname'];
     $dept=$Datarows['branch'];
-    $year=$Datarows['year'];
+    // $year=$Datarows['year'];
+    $sem=$Datarows['sem'];
     $email=$Datarows['email'];
     $DOB=$Datarows['date'];
 ?>
@@ -85,7 +86,8 @@ while($Datarows=mysqli_fetch_array($EXECUTE)){
       <td><?php echo $regno; ?></td>
       <td><?php echo $student; ?></td>
       <td><?php echo $dept; ?></td>
-      <td><?php echo $year; ?></td>
+      <!-- <td><?php echo $year; ?></td> -->
+      <td><?php echo $sem; ?></td>
       <td><?php echo $email; ?></td>
       <td><?php echo $DOB; ?></td>
       </tr>
