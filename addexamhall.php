@@ -1,21 +1,20 @@
 <?php
 $link=mysqli_connect("localhost","root","") or die("no db found");
 mysqli_select_db($link,"exam-seat") or die("not conected");
- if(isset($_POST['submit']))
- {
-     $regno=$_POST['regno'];
+ if(isset($_POST['submit'])){
+    //  $regno=$_POST['regno'];
      $branch=$_POST['branch'];
      $hallname=$_POST['hallname'];
      $blockname=$_POST['blockname'];
      $floor=$_POST['floor'];
      $sem=$_POST['sem'];
-     $seatcapacity=$_POST['seatcapacity'];
-     if(empty($regno)||empty($branch)||empty($hallname)||empty($blockname)||empty($floor)||empty($sem)||empty($seatcapacity)){
+    //  $seatcapacity=$_POST['seatcapacity'];
+     if(empty($branch)||empty($hallname)||empty($blockname)||empty($floor)||empty($sem)){
          echo "<h3>Enter all the Details: *its required</h3>";
      }
      else{
-         $query="insert into addexamhall(regno,branch,hallname,blockname,floor,sem,seatno)
-         values ('$regno','$branch',$hallname','$blockname','$floor','$sem','$seatcapacity')";
+         $query = "insert into addexamhall (branch,hallname,blockname,floor,sem)
+         values ('$branch',$hallname','$blockname','$floor','$sem')";
          if(mysqli_query($link,$query))
          {
             echo "<h3>Exam Hall Details Added Successfully</h3>";
@@ -98,12 +97,10 @@ body{
  <center>
  <table border="1" width="350px" height="400px">
  <tr><th>Add Exam Halls</th></tr>
- <tr><td>REGISTER</td></tr>
- <tr><td><input type="text"  name="regno"/></td></tr>
+ <!-- <tr><td>REGISTER</td></tr> -->
+ <!-- <tr><td><input type="text"  name="regno"/></td></tr> -->
  <tr><td>BRANCH</td></tr>
- <tr><td><select option name="branch"><option value="CSE">ComputerScience</option>
-<option value="ISE">InformationScience</option>
-<option value="ECE">ElectricalCommunication</option></select>
+ <tr><td><input type="text" name="branch"/>
 </td></tr>
  <tr><td>HALL NAME</td></tr>
  <tr><td><input type="text"  name="hallname"/></td></tr>
@@ -113,9 +110,12 @@ body{
  <tr><td><input type="number" name="floor"/></td></tr>
  <tr><td>SEMESTER</td></tr>
  <tr><td><input type="number"  name="sem"/></td></tr>
- <tr><td>SEAT NUMBER</td></tr>
- <tr><td><input type="number" name="seatcapacity"/></td></tr>
- <tr><td align="center"><input type="submit" name="submit" value="SUBMIT"/></td></tr>
+ <!-- <tr><td>SEAT NUMBER</td></tr> <select option name="branch">
+<option value="CSE">ComputerScience</option>
+<option value="ISE">InformationScience</option>
+<option value="ECE">ElectricalCommunication</option></select>-->
+ <!-- <tr><td><input type="number" name="seatcapacity"/></td></tr> -->
+ <tr><td align="center"><input type="submit" name='submit' value="Submit"/></td></tr>
  </table>
  </center>
  </form></div>

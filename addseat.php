@@ -5,15 +5,16 @@ if(isset($_POST['submit'])){
     $regno=$_POST['regno'];
     $branch=$_POST['branch'];
     $semister=$_POST['sem'];
+    $seat=$_POST['seat'];
     $date=$_POST['date'];
-    if(empty($regno)||empty($branch)||empty($semister)||empty($date)){
+    if(empty($regno)||empty($branch)||empty($semister)||empty($seat)||empty($date)){
         echo "<h3>Enter the Details:* its Required</h3>";
     }
     else{
-        $query="insert into addseat(regno,branch,semister,date) values ('$regno','$branch','$semister','$date')";
+        $query="insert into addseat(regno,branch,semister,seat,date) values ('$regno','$branch','$semister','$seat','$date')";
         if(mysqli_query($link,$query)){
             echo '<h3>Successfully added Deatails</h3>';
-            header("Location:addstudent.php");
+            header("Location:addseat.php");
         }
         else
         echo "<h3>error</h3>";
@@ -98,6 +99,8 @@ th{
 <tr><td><input type="text" name="branch"/></td></tr>
 <tr><td>SEMESTER</td></tr>
 <tr><td><input type="text" name="sem"/></td></tr>
+<tr><td>SEATNO</td></tr>
+<tr><td><input type="number" name="seat"/></td></tr>
 <tr><td>DATE</td></tr>
 <tr><td><input type="date" name="date"/></td></tr>
 <tr><td align="center"><input type="submit" name="submit" value="SUBMIT"/></td></tr>
