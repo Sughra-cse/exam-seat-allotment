@@ -12,7 +12,7 @@
      }
      else{
          $query = "insert into addexamhall(branch,hallname,blockname,floor,sem)
-          values ('$branch',$hallname','$blockname','$floor','$sem')";
+          values ('$branch','$hallname','$blockname','$floor','$sem')";
          if(mysqli_query($link,$query))
          {
             echo "<h3>Exam Hall Details Added Successfully</h3>";
