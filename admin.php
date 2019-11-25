@@ -26,19 +26,20 @@ if(isset($_POST['submit']))
 <title>Login in</title>
 <style>
 body{
-    background-image:url("dillon-shook.jpg")
+    background-image:url("dillon-shook.jpg");
+    background-size:cover;
 }
 table{
     align:center;
     color:whitesmoke;
     background-color:grey;
     padding:20px;
-    margin-left:15%;
+    margin-left:5%;
     border:2px solid wheat;
 }
 form{
     width:50%;
-    margin-left:20%;
+    margin-left:3%;
     padding:40px;
 }
 table tr td{

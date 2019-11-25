@@ -6,6 +6,7 @@
 body{
     margin-left:18%;
     background-image:url('images.jpg');
+    background-size:cover;
 }
 table tr{
     color:white;

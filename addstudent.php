@@ -104,9 +104,12 @@ th{
 <tr><td>STUDENT NAME</td><tr>
 <tr><td><input type="text" name="sname"/></td></tr>
 <tr><td>DEPARTMENT</td><tr>
-<tr><td><select option name="branch"><option value="CSE">ComputerScience</option>
+<tr><td><select option name="branch">
+<option value="CSE">ComputerScience</option>
 <option value="ISE">InformationScience</option>
-<option value="ECE">ElectricalCommunication</option></select>
+<option value="ECE">ElectronicsAndCommunication</option>
+<option value="ME">Mechanical</option>
+<option value="EEE">ElectricalAndElectronics</option></select>
 </td></tr>
 <tr><td>YEAR</td><tr>
 <tr><td><select option name="year"><option value="1year">1st Year</option>

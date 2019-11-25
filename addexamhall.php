@@ -1,20 +1,18 @@
 <?php
-$link=mysqli_connect("localhost","root","") or die("no db found");
-mysqli_select_db($link,"exam-seat") or die("not conected");
+ $link=mysqli_connect("localhost","root","") or die("no db found");
+ mysqli_select_db($link,"exam-seat") or die("not conected");
  if(isset($_POST['submit'])){
-    //  $regno=$_POST['regno'];
      $branch=$_POST['branch'];
      $hallname=$_POST['hallname'];
      $blockname=$_POST['blockname'];
      $floor=$_POST['floor'];
      $sem=$_POST['sem'];
-    //  $seatcapacity=$_POST['seatcapacity'];
      if(empty($branch)||empty($hallname)||empty($blockname)||empty($floor)||empty($sem)){
          echo "<h3>Enter all the Details: *its required</h3>";
      }
      else{
-         $query = "insert into addexamhall (branch,hallname,blockname,floor,sem)
-         values ('$branch',$hallname','$blockname','$floor','$sem')";
+         $query = "insert into addexamhall(branch,hallname,blockname,floor,sem)
+          values ('$branch',$hallname','$blockname','$floor','$sem')";
          if(mysqli_query($link,$query))
          {
             echo "<h3>Exam Hall Details Added Successfully</h3>";
@@ -84,7 +82,6 @@ body{
 <nav>
 <ul>
 <li><a href="addstudent.php" >ADD <br>STUDENTS</a></li>
-<!-- <li><a href="addepartment.php">ADD <br>DEPARTMENT</a></li> -->
 <li><a href="addexamhall.php" >ADD <br>EXAM HALLS</a></li>
 <li><a href="addseat.php" >SEAT <br>ALLOCATION</a></li>
 <li><a href="viewseat.php" >VIEW SEATING <br>ARRAGEMENTS</a></li>
@@ -109,13 +106,8 @@ body{
  <tr><td>FLOOR</td></tr>
  <tr><td><input type="number" name="floor"/></td></tr>
  <tr><td>SEMESTER</td></tr>
- <tr><td><input type="number"  name="sem"/></td></tr>
- <!-- <tr><td>SEAT NUMBER</td></tr> <select option name="branch">
-<option value="CSE">ComputerScience</option>
-<option value="ISE">InformationScience</option>
-<option value="ECE">ElectricalCommunication</option></select>-->
- <!-- <tr><td><input type="number" name="seatcapacity"/></td></tr> -->
- <tr><td align="center"><input type="submit" name='submit' value="Submit"/></td></tr>
+ <tr><td><input type="number" name="sem"/></td></tr>
+ <tr><td align="center"><input type="submit" name="submit" value="Submit"/></td></tr>
  </table>
  </center>
  </form></div>
